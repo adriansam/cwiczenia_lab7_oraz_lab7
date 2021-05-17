@@ -48,6 +48,25 @@ import openpyxl
 #=============  2czesc cwiczen ==============
 
 # ============== praca domowa ============
+# zadania pandas
+# zad1
+xlsx = pd.ExcelFile('imiona.xlsx')
+df = pd.read_excel(xlsx, header=0)
+print(df)
+# zad2
+print(df[df['Liczba'] > 1000])
+
+print(df[df['Imie'] == 'RADOSLAW'])
+
+print(df.agg({'Liczba': ['sum']}))
+
+print(df[(df.Rok < 2006)].agg({'Liczba': ['sum']}))
+
+print(df.groupby(['Plec']).agg({'Liczba': ['sum']}))
+
+#najbardziej popularne imie dziewcyznki i chlopca w danym roku (czyli po 2 rekordy na rok)
+print(df.sort_values('Liczba', ascending=False).groupby(['Rok']))
+# zadania pandas wykresy
 # zad1
 # Stwórz wykres liniowy, który wyświetli liczbę urodzonych dzieci dla każdego roku.
 # df = pd.read_excel('imiona.xlsx')
