@@ -45,17 +45,29 @@ import openpyxl
 # df['MA'] = df.rolling(window=100).mean()
 # df.plot()
 # plt.show()
+#=============  2czesc cwiczen ==============
+
+# ============== praca domowa ============
 # zad1
 # Stwórz wykres liniowy, który wyświetli liczbę urodzonych dzieci dla każdego roku.
-# xlsx = pd.ExcelFile('imiona.xlsx')
-# odczyt = pd.read_excel(xlsx, header=0)
-# df = pd.DataFrame(odczyt)
-# print(df)
+# df = pd.read_excel('imiona.xlsx')
+# grupa = df.groupby(['Rok']).agg({'Liczba':['sum']})
+# wykres = grupa.plot()
+# plt.show()
 # zad2
-xlsx = pd.ExcelFile('imiona.xlsx')
-odczyt_xlsx = pd.read_excel(xlsx, header=0)
-df = pd.DataFrame(odczyt_xlsx)
-print(df)
-plt.title('Wykresik')
-plt.show()
-
+# df = pd.read_excel('imiona.xlsx', header=0)
+# grupa = df.groupby(['Plec']).agg({'Plec':['count']})
+# wykres = grupa.plot.bar()
+# plt.legend(loc='lower left')
+# plt.xticks(rotation=0)
+# plt.show()
+# zad3
+# df = pd.read_excel('imiona.xlsx', header=0)
+# grupa = df.groupby(['Liczba']).agg({'Plec':['sum']})
+# wykres = grupa.plot.pie(subplots=True, autopct='%.2f %%', fontsize=20, figsize=(6, 6), legend=(0, 0))
+# plt.show()
+# zad4
+# df = pd.read_csv('zamowienia.csv', header=0, sep=';', decimal='.')
+# grupa = df.groupby(['Sprzedawca']).agg({'Sprzedawca':['count']})
+# wykres = grupa.plot.bar()
+# plt.show()
